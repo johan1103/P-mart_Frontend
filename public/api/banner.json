@@ -1,0 +1,22 @@
+[
+    {
+        "title": "메인상품1",
+        "subtitle":"메인상품1설명",
+        "image":"https://picsum.photos/1920/570/?image=814"
+    },
+    {
+        "title": "메인상품2",
+        "subtitle":"메인상품2설명",
+        "image":"https://picsum.photos/1920/570/?image=815"
+    },
+    {
+        "title": "메인상품3",
+        "subtitle":"메인상품3설명",
+        "image":"https://picsum.photos/1920/570/?image=816"
+    },
+    {
+        "title": "메인상품4",
+        "subtitle":"메인상품4설명",
+        "image":"https://picsum.photos/1920/570/?image=817"
+    }
+]
