@@ -6,7 +6,8 @@ export default {
         bestProducts: [],
         featuredProducts: [],
         products:[],
-        totalProducts: 0
+        totalProducts: 0,
+        page: 0
     },
     mutations: {
         setBestProducts(state, products){
@@ -20,6 +21,9 @@ export default {
         },
         setTotalProducts(state, totalCount){
             state.totalProducts= totalCount;
+        },
+        setPage(state, page){
+            state.page= page;
         }
     },
     actions: {
@@ -31,11 +35,12 @@ export default {
             const response = await productApi.getFeaturedProducts();
             commit('setFeaturedProducts',response.data);
         },
-        async setProducts({commit}){
-            const response = await productApi.getProducts();
+        async setProducts({commit}, page=0){
+            const response = await productApi.getProducts(page);
 
             commit('setProducts',response.data.products);
             commit('setTotalProducts',response.data.total);
+            commit('setPage',page);
         }
     }
 }

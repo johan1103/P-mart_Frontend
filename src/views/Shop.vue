@@ -52,7 +52,7 @@
 					<div class="flex-sb-m flex-w p-b-35">
 
 						<span class="s-text8 p-t-5 p-b-5">
-							Showing 1–12 of 16 results
+							Showing {{(page*12)+1}}-{{(page*12)+12}} of {{totalProducts}} results
 						</span>
 					</div>
 
@@ -61,8 +61,18 @@
 
 					<!-- Pagination -->
 					<div class="pagination flex-m flex-w p-t-26">
-						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+						<template v-for="p in Math.ceil(totalProducts / 12)">
+							<button
+							type="button"
+							@click="changePage(p-1)"
+							class="item-pagination flex-c-m trans-0-4"
+							:class="{'active-pagination' : p-1 === page}"
+							>
+
+							{{p}}
+
+							</button>
+						</template>
 					</div>
 				</div>
 			</div>
@@ -74,6 +84,9 @@
 </template>
 
 <script>
+
+	import { mapState } from 'vuex';
+
 	import PriceFilter from '@/components/shop/PriceFilter.vue'
 	import CategoryFilter from '@/components/shop/CategoryFilter.vue'
 	import ColorFilter from '@/components/shop/ColorFilter.vue'
@@ -81,6 +94,20 @@
 	import ProductList from '@/components/shop/ProductList.vue'
 
 export default {
+
+	computed: {
+		...mapState('product',{
+			totalProducts: state => state.totalProducts,
+			page: state => state.page
+		})
+	},
+
+	methods: {
+		changePage(page) {
+			this.$store.dispatch('product/setProducts', page);
+		}
+	},
+
     components : {
 		PriceFilter,
 		ColorFilter,
