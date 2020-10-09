@@ -6,5 +6,9 @@ export default{
     },
     async getFeaturedProducts(){
         return http.get('api/featured-product.json');
+    },
+
+    async getProducts(){
+        return http.get('api/products.json');
     }
 }
