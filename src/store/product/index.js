@@ -7,11 +7,12 @@ export default {
         featuredProducts: [],
         products:[],
         totalProducts: 0,
-        page: 0
+        page: 0,
+        priceRange: null
     },
     mutations: {
-        setBestProducts(state, products){
-            state.bestProducts = [].concat(products);
+        setBestProducts(state, product){
+            state.bestProducts = [].concat(product);
         },
         setFeaturedProducts(state, products){
             state.featuredProducts=[].concat(products);
@@ -24,6 +25,9 @@ export default {
         },
         setPage(state, page){
             state.page= page;
+        },
+        setPriceRange(state, priceRange){
+            state.priceRange= priceRange;
         }
     },
     actions: {
@@ -35,12 +39,17 @@ export default {
             const response = await productApi.getFeaturedProducts();
             commit('setFeaturedProducts',response.data);
         },
-        async setProducts({commit}, page=0){
-            const response = await productApi.getProducts(page);
+        async setProducts({commit, state}, page=0){
+            const response = await productApi.getProducts(page, state.priceRange);
 
             commit('setProducts',response.data.products);
             commit('setTotalProducts',response.data.total);
             commit('setPage',page);
+        },
+        async setPriceRange({commit,dispatch}, priceRange){
+            commit('setPriceRange',priceRange);
+
+            dispatch('setProducts');
         }
     }
 }

@@ -48,8 +48,11 @@ export default {
 
 	    filterBar.noUiSlider.on('update', function( values, handle ) {
 	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
-	    });
-
+		});
+		
+		filterBar.noUiSlider.on('end', (values)=>{
+			this.$store.dispatch('product/setPriceRange', values);
+		});
 
     }
 }
