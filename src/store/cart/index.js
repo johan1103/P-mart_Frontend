@@ -26,6 +26,19 @@ export default{
         },
         delItem(state,id){
             state.items = state.items.filter(item => item.id !== id)
+        },
+        changeQty(state, {id,qty}){
+            const cartItem =state.items.filter(cartItem => cartItem.id ===id);
+
+            if(cartItem.length !==0){
+                if(cartItem[0].qty + qty<=0){
+                    const index = state.items.findIndex(cartItem => cartItem.id ===id);
+
+                    state.items.splice(index,1);
+                } else {
+                    cartItem[0].qty += qty;
+                }
+            }
         }
     },
     actions: {
@@ -34,6 +47,18 @@ export default{
         },
         delItem({commit},id){
             commit('delItem',id);
+        },
+        increaseQty({commit},id){
+            commit('changeQty',{
+                id,
+                qty: 1
+            })
+        },
+        decreaseQty({commit}, id){
+            commit('changeQty',{
+                id,
+                qty:-1
+            })
         }
     }
 
