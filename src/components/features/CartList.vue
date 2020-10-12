@@ -17,7 +17,7 @@
                 <template v-for="item in cartItems">
                     <tr class="table-row">
                         <td class="column-1">
-                            <div class="cart-img-product b-rad-4 o-f-hidden">
+                            <div class="cart-img-product b-rad-4 o-f-hidden" @click="delItem(item.id)">
                                 <img :src="item.image" alt="IMG-PRODUCT">
                             </div>
                         </td>
@@ -57,6 +57,11 @@ export default {
         ...mapState('cart', {
             cartItems: state => state.items
         })
+    },
+    methods: {
+        delItem(id){
+            this.$store.dispatch('cart/delItem',id);
+        }
     }
 }
 

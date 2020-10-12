@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(https://picsum.photos./1920/239/?image=864);">
+        <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(https://picsum.photos/1920/239/?image=864);">
             <h2 class="l-text2 t-center">
                 Cart
             </h2>

@@ -65,7 +65,7 @@
 
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">{{cartItems.length}}</span>
+						<span class="header-icons-noti">{{ totalCartQty}}</span>
 
 						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
@@ -82,7 +82,7 @@
 										</router-link>
 
 										<span class="header-cart-item-info">
-											1 x ${{product.price}}
+											{{product.qty}} x ${{product.price}}
 										</span>
 									</div>
 								</li>
@@ -90,7 +90,7 @@
 							</ul>
 
 							<div class="header-cart-total">
-								Total: ${{totlaCartPrice}}
+								Total: ${{totalCartPrice}}
 							</div>
 
 							<div class="header-cart-buttons">
@@ -133,7 +133,7 @@
 
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
+						<span class="header-icons-noti">{{totalCartQty}}</span>
 
 						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
@@ -149,7 +149,7 @@
 											{{product.title}}
 										</router-link>
 										<span class="header-cart-item-info">
-											1 x ${{product.price}}
+											{{product.qty}} x ${{product.price}}
 										</span>
 									</div>
 								</li>
@@ -157,7 +157,7 @@
 							</ul>
 
 							<div class="header-cart-total">
-								Total: ${{totlaCartPrice}}
+								Total: ${{totalCartPrice}}
 							</div>
 
 							<div class="header-cart-buttons">
@@ -273,7 +273,8 @@ export default {
 			cartItems: state => state.items
 		}),
 		...mapGetters('cart',{
-			totlaCartPrice: 'totalPrice'
+			totalCartPrice: 'totalPrice',
+			totalCartQty: 'totalQty'
 		})
 	}
 }
