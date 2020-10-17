@@ -34,7 +34,7 @@
                                 </button>
                             </div>
                         </td>
-                        <td class="column-5">$ {{item.price}}</td>
+                        <td class="column-5">${{item.qty * item.price}}</td>
                     </tr>
 
                 </template>
@@ -47,7 +47,7 @@
 
 <script>
 
-import { mapState } from 'vuex';
+import { mapState} from 'vuex';
 
 export default {
     computed: {
