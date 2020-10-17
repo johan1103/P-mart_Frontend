@@ -32,10 +32,11 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
+				<router-link :to="{name: 'home'}" tag="div" active-class="sale-noti" exact>
 				<a href="index.html" class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
-
+				</router-link>
 				<!-- Menu -->
 				<div class="wrap_menu">
 					<nav class="menu">
@@ -72,7 +73,7 @@
 							<ul class="header-cart-wrapitem">
 								<template v-for="product in cartItems">
 								<li class="header-cart-item">
-									<div class="header-cart-item-img">
+									<div class="header-cart-item-img" @click="delItem(product.id)">
 										<img :src="product.image" alt="IMG">
 									</div>
 
@@ -96,15 +97,17 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<router-link :to="{name: 'features'}" tag="div" active-class="sale-noti" exact>
+									<a class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
+									</router-link>
 								</div>
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
+									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" @click="clearItem()">
+										Clear cart
 									</a>
 								</div>
 							</div>
@@ -140,7 +143,7 @@
 							<ul class="header-cart-wrapitem">
 								<template v-for="product in cartItems">
 								<li class="header-cart-item">
-									<div class="header-cart-item-img">
+									<div class="header-cart-item-img" @click="delItem(product.id)">
 										<img :src="product.image" alt="IMG">
 									</div>
 
@@ -276,6 +279,14 @@ export default {
 			totalCartPrice: 'totalPrice',
 			totalCartQty: 'totalQty'
 		})
+	},
+	methods: {
+		delItem(id){
+			this.$store.dispatch('cart/delItem',id);
+		},
+		clearItem(){
+			this.$store.dispatch('cart/clearItem');
+		}
 	}
 }
 </script>
