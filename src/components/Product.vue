@@ -43,6 +43,6 @@ export default {
 		addToCart(product){
 			this.$store.dispatch('cart/addItem',product);
 		}
-	}
+    }
 }
 </script>
