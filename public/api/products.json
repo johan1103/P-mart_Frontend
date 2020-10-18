@@ -7,7 +7,7 @@
         "link": "",
         "price": 11.00,
         "badge": "new",
-        "category": 0
+        "category": 1
       },
       {
         "id": 2,
@@ -16,7 +16,7 @@
         "link": "",
         "price": 92.50,
         "badge": null,
-        "category": 0
+        "category": 2
       },
       {
         "id": 3,
@@ -25,7 +25,7 @@
         "link": "",
         "price": 165.90,
         "badge": null,
-        "category": 0
+        "category": 3
       },
       {
         "id": 4,
@@ -34,7 +34,7 @@
         "link": "",
         "price": 29.50,
         "badge": "sale",
-        "category": 0
+        "category": 1
       },
       {
         "id": 5,
@@ -43,7 +43,7 @@
         "link": "",
         "price": 75.00,
         "badge": "new",
-        "category": 0
+        "category": 2
       },
       {
         "id": 6,
@@ -52,7 +52,7 @@
         "link": "",
         "price": 92.50,
         "badge": null,
-        "category": 0
+        "category": 3
       },
       {
         "id": 7,
@@ -61,7 +61,7 @@
         "link": "",
         "price": 165.90,
         "badge": null,
-        "category": 0
+        "category": 4
       },
       {
         "id": 8,
@@ -70,7 +70,7 @@
         "link": "",
         "price": 29.50,
         "badge": "sale",
-        "category": 0
+        "category": 4
       },
       {
         "id": 5,
@@ -79,7 +79,7 @@
         "link": "",
         "price": 75.00,
         "badge": "new",
-        "category": 0
+        "category": 1
       },
       {
         "id": 6,
@@ -88,7 +88,7 @@
         "link": "",
         "price": 92.50,
         "badge": null,
-        "category": 0
+        "category": 2
       },
       {
         "id": 7,
@@ -97,7 +97,7 @@
         "link": "",
         "price": 165.90,
         "badge": null,
-        "category": 0
+        "category": 3
       },
       {
         "id": 8,
@@ -106,7 +106,7 @@
         "link": "",
         "price": 29.50,
         "badge": "sale",
-        "category": 0
+        "category": 4
       }
     ],
     "total": 24
