@@ -8,7 +8,8 @@ export default {
         products:[],
         totalProducts: 0,
         page: 0,
-        priceRange: null
+        priceRange: null,
+        category: 0
     },
     mutations: {
         setBestProducts(state, product){
@@ -28,6 +29,9 @@ export default {
         },
         setPriceRange(state, priceRange){
             state.priceRange= priceRange;
+        },
+        setCategory(state,category){
+            state.category=category;
         }
     },
     actions: {
@@ -50,6 +54,9 @@ export default {
             commit('setPriceRange',priceRange);
 
             dispatch('setProducts');
+        },
+        async setCategory({commit},category){
+            commit('setCategory',category);
         }
     }
 }

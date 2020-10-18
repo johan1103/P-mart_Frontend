@@ -53,7 +53,7 @@ export default {
     computed: {
         ...mapState('cart', {
             cartItems: state => state.items
-        })
+            })
     },
     methods: {
         delItem(id){

@@ -57,7 +57,7 @@
 					</div>
 
 					<!-- Product -->
-					<ProductList />
+					<ProductList :category="category" />
 
 					<!-- Pagination -->
 					<div class="pagination flex-m flex-w p-t-26">
@@ -98,13 +98,17 @@ export default {
 	computed: {
 		...mapState('product',{
 			totalProducts: state => state.totalProducts,
-			page: state => state.page
+			page: state => state.page,
+			category: state => state.category
 		})
 	},
 
 	methods: {
 		changePage(page) {
 			this.$store.dispatch('product/setProducts', page);
+		},
+		setCategory(category){
+			this.$store.dispatch('product/setCategory',category);
 		}
 	},
 
