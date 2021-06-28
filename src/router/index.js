@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Shop from '../views/Shop.vue'
 import Features from '../views/Features.vue'
+import temp from '../views/temp.vue'
 
 
 
@@ -23,7 +24,12 @@ const routes = [
     path: '/features',
     name: 'features',
     component: Features
-  }
+  },
+  {
+    path: '/temp',
+    name: 'temp',
+    component: temp
+  },
 ]
 
 const router = new VueRouter({
